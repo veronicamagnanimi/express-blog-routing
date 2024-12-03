@@ -2,9 +2,16 @@ const express = require("express");
 const posts = require("./posts");
 const app = express();
 const port = 3000;
+const postsRouter = require("./routers/posts") //importo il router
 
+//immagini pubbliche
 app.use(express.static("public"));
 
+//per testare in postman
+app.use("/posts", postsRouter);
+
+
+//esecuzione
 app.get('/', (req, res) => {
     res.send("Server del mio blog")
 });
