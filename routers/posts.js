@@ -11,8 +11,13 @@ router.get('/', (req, res) => {
 
 //show --> GET
 router.get('/:id', (req, res) => {
-    const postId = req.params.id;
-    res.json("In evidenza l'elemento " + postId);
+    const postId = parseInt(req.params.id);
+    const findPost = posts.find(curItem => curItem.id === postId);
+    if(findPost) {
+    res.json(findPost)}
+    else {
+        res.json(`Il post con id ${postId} non esiste`)
+    };
 })
 
 //create --> POST
