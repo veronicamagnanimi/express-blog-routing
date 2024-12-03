@@ -2,10 +2,12 @@ const express = require("express");
 const router = express.Router();
 module.exports = router; //esporto sull'app principale
 
+const posts = require("../posts");
+
 //index --> GET
 router.get('/', (req, res) => {
-    res.json("Tutti i dati")
-});
+    res.json(posts);
+})
 
 //show --> GET
 router.get('/:id', (req, res) => {
